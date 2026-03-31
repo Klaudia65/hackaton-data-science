@@ -38,14 +38,14 @@ import pandas as pd
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 
-# 10 000 individuals
-df_sample = df_data40.sample(n=10000, random_state=0)
+df_sample = df_data40
 
 # Appliquer l'imputation avec les paramètres optimisés
 imputer = IterativeImputer(
-    estimator=LinearRegression(),
-    max_iter=5,
+    estimator=Ridge(),#Ridge ou BayesianRidge
+    max_iter=10,
     random_state=0,
     n_nearest_features=100
 )
@@ -55,6 +55,6 @@ X_imputed = imputer.fit_transform(df_sample)
 X_imputed_df = pd.DataFrame(X_imputed, columns=df_sample.columns)
 
 # save
-X_imputed_df.to_csv('data/imputed_sample.csv', index=False)
+X_imputed_df.to_csv('data/imputed_sample_ridge.csv', index=False)
 
 

@@ -3,7 +3,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
-df_imputed = pd.read_csv('data/imputed_sample.csv')
+df_imputed = pd.read_csv('data/imputed_sample_linear.csv')
 
 # Normalization
 scaler = StandardScaler()
@@ -32,4 +32,4 @@ plt.grid()
 plt.show()
 
 # sauvegarder les données réduites
-X_pca.to_csv('data/imputed_sample_pca.csv', index=False)
+pd.DataFrame(X_pca).to_csv('data/imputed_sample_pca.csv', index=False)
