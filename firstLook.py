@@ -13,19 +13,19 @@ df_data.head()
 df_meta.head()
 
 lenOfData = []
-for i in range (10):
+for i in range (11):
   dataUnderI = df_data.columns[df_data.isnull().mean() < i/10]
   lenOfData.append(len(dataUnderI))
   print(f"Number of features with less than {i*10}% missing data: {len(dataUnderI)}")
 
 #graph of the number of features according to the percentage of missing data
 plt.figure(figsize=(10, 6))
-plt.plot(range(10), lenOfData, marker='o')
+plt.plot(range(11), lenOfData, marker='o')
 plt.grid()
 plt.title('Number of features according to the percentage of missing data')
 plt.xlabel('Percentage of missing data (%)')
 plt.ylabel('Number of features')
-plt.xticks(range(10), [f'{i*10}%' for i in range(10)])
+plt.xticks(range(11), [f'{i*10}%' for i in range(11)])
 #save the graph as an image
 plt.savefig('visualization/missing_data.png')
 plt.show()
