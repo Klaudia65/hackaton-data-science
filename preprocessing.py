@@ -42,9 +42,9 @@ from sklearn.linear_model import Ridge
 
 df_sample = df_data40
 
-# Appliquer l'imputation avec les paramètres optimisés
+#-----Iterative imputation with Ridge and linear regression as estimator
 imputer = IterativeImputer(
-    estimator=Ridge(),#Ridge ou BayesianRidge
+    estimator=Ridge(),#LinearRegression ou BayesianRidge
     max_iter=10,
     random_state=0,
     n_nearest_features=100
